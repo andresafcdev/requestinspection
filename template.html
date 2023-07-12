@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Request Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            padding: 20px;
+            margin: 0;
+        }
+        h1 {
+            color: #333333;
+            margin-bottom: 20px;
+        }
+        p {
+            color: #555555;
+            margin-bottom: 10px;
+        }
+        .header {
+            background-color: #007bff;
+            color: #ffffff;
+            padding: 10px;
+        }
+        .header h1 {
+            margin: 0;
+        }
+        .header p {
+            margin-top: 5px;
+            margin-bottom: 0;
+        }
+        .header strong {
+            color: #ffffff;
+        }
+        .request-info {
+            border: 1px solid #dddddd;
+            background-color: #ffffff;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Request Information</h1>
+        <p>URI Path: {path}</p>
+        <p>Query Parameters: {query_params}</p>
+    </div>
+    <div class="request-info">
+        <h1>Request Headers:</h1>
+        {headers}
+    </div>
+</body>
+</html>
