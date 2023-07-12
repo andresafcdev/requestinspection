@@ -1,59 +1,50 @@
 import flask
-import os.path
 
 app = flask.Flask(__name__)
 
 @app.route("/")
 @app.route("/<path:rest>")
 def main(rest=None):
+    headers = flask.request.headers
+    query_params = flask.request.args
+    path = flask.request.path
+
     out = """
     <!DOCTYPE html>
     <html>
-    <head lang="en">
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Backend Server HTTP header print</title>
+    <head>
+        <title>Request Inspection</title>
     </head>
     <body>
-        <section style="background-color:#fff">
-            <div class="container">
-                <div class="row">
-                    <br>
-                    <h2> Backend Server HTTP header print</h2>
-                    <br>
-                </div>
-            </div>
-        </section>
-        <div class="content">
-            <div class="content-text">
-                <table>
-                    <tr>
-                        <th>Header name</th>
-                        <th>Header value</th>
-                    </tr>
-    """
+        <h1>Request Inspection</h1>
+        <h2>URL Path: {}</h2>
+        <h2>Query Parameters:</h2>
+        <ul>
+    """.format(path)
 
-    for value in flask.request.headers.keys():
-        out += f"""
-                    <tr>
-                        <td>{value}</td>
-                        <td>{flask.request.headers[value]}</td>
-                    </tr>
-        """
+    for param, value in query_params.items():
+        out += "<li>{}: {}</li>".format(param, value)
 
     out += """
-                </table>
-            </div>
-        </div>
+        </ul>
+        <h2>Headers:</h2>
+        <table>
+            <tr>
+                <th>Header Name</th>
+                <th>Header Value</th>
+            </tr>
+    """
+
+    for name, value in headers.items():
+        out += "<tr><td>{}</td><td>{}</td></tr>".format(name, value)
+
+    out += """
+        </table>
     </body>
     </html>
     """
 
-    path = flask.request.path
-    query = flask.request.query_string.decode("utf-8")
-
-    return out.format(path=path, query=query)
+    return out
 
 if __name__ == "__main__":
     app.run()
