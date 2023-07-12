@@ -15,29 +15,6 @@ def main(rest=None):
     <head>
         <title>Request Inspection</title>
     </head>
-    <style>
-    body {
-        background-color: #282828;
-        font-family: "Courier New", Courier, monospace;
-    }
-    table {
-        width: auto;
-    }
-    th {
-        text-align: left;
-        color: #ffb000;
-    }
-    td {
-        color: #ffb000;
-    }
-    tr:hover {
-        background-color: rgba(28, 21, 6, 0.85);
-    }
-    tr {
-        border-bottom: 1px solid #000000;
-        padding-right: 5px;
-    }
-    </style>
     <body>
         <h1>Request Inspection</h1>
         <h2>URL Path: {}</h2>
