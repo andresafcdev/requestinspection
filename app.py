@@ -14,29 +14,6 @@ def main(rest=None):
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Backend Server HTTP header print</title>
-        <style>
-            body {
-                background-color: #282828;
-                font-family: "Courier New", Courier, monospace;
-            }
-            table {
-                width: auto;
-            }
-            th {
-                text-align: left;
-                color: #ffb000;
-            }
-            td {
-                color: #ffb000;
-            }
-            tr:hover {
-                background-color: #1c1506d8;
-            }
-            tr {
-                border-bottom: 1cm solid #000000;
-                padding-right: 5cm;
-            }
-        </style>
     </head>
     <body>
         <section style="background-color:#fff">
